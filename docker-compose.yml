@@ -1,0 +1,34 @@
+version: '3.0'
+services:
+  kyoto_db:
+    image: mysql:5
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql-mode=''
+    container_name: "kyoto_database"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_USER: ""
+      MYSQL_PASSWORD: ""
+      MYSQL_DATABASE: "kyoto"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+  kyoto_web:
+    image: "kyoto"
+    container_name: "kyoto_internal"
+    build:
+      context: .
+      dockerfile: kyoto.Dockerfile
+    environment:
+      - GIN_MODE=release
+    depends_on:
+      - kyoto_db:
+        condition: service_healthy
+    links:
+      - kyoto_db
+    ports:
+      - "28000:8000"
+    command: ["/Kyoto"]

@@ -1,0 +1,14 @@
+[site]
+name = ""
+port = 8000
+
+[mysql]
+user = ""
+password = ""
+addr = "tcp(localhost:3306)"
+name = ""
+
+[tgbot]
+token = ""
+targetChannel = "@xxx"
+# targetUser = ""
