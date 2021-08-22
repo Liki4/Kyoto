@@ -27,6 +27,7 @@ GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build .
 ```
 
 ## Deploy
+根据 `kyoto.sample.toml` 生成 `kyoto.toml` 并修改 `docker-compose.yml`
 ```shell
 docker-compose up -d --build
 ```
