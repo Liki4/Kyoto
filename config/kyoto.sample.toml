@@ -1,12 +1,12 @@
 [site]
-name = ""
+name = "Kyoto"
 port = 8000
 
 [mysql]
-user = ""
-password = ""
+user = "kyoto"
+password = "KYOTOPWDHERE"
 addr = "tcp(localhost:3306)"
-name = ""
+name = "kyoto"
 
 [tgbot]
 token = ""
