@@ -7,9 +7,9 @@ services:
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      MYSQL_ROOT_PASSWORD: ""
-      MYSQL_USER: ""
-      MYSQL_PASSWORD: ""
+      MYSQL_ROOT_PASSWORD: "ROOTPWDHERE"
+      MYSQL_USER: "kyoto"
+      MYSQL_PASSWORD: "KYOTOPWDHERE"
       MYSQL_DATABASE: "kyoto"
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
