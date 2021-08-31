@@ -18,7 +18,7 @@ func Run() {
 	//b.GET("/count", Entry(birthday.CountBirthday))
 
 	//t := r.Group("/tgbot")
-	//t.GET("/test", Entry(tgbot2.TestTelegramBot))
+	//t.GET("/test", Entry(tgbot.TestTelegramBot))
 
 	err := r.Run(fmt.Sprintf(":%d", conf.Get().Site.Port))
 	if err != nil {

@@ -12,7 +12,7 @@ services:
       MYSQL_PASSWORD: "KYOTOPWDHERE"
       MYSQL_DATABASE: "kyoto"
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       interval: 2s
       timeout: 5s
       retries: 30
@@ -31,4 +31,4 @@ services:
       - kyoto_db
     ports:
       - "28000:8000"
-    command: ["/Kyoto"]
+    command: [ "/Kyoto" ]
